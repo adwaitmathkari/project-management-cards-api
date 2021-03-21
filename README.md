@@ -4,6 +4,8 @@ Api to manage task boards, lists(To-Do, inProgress, Done), task cards.
 
 NodeJS, typescript, express, mongodb. 
 
-#RUN
+# INSTALL 
 npm install
+
+# RUN 
 npm start
