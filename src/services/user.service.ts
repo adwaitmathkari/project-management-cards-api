@@ -1,4 +1,4 @@
-import { connect, disconnect } from "../config/db.config";
+import { connect, disconnect } from "../../config/db.config";
 import { UserModel } from '../models/user.model';
 
 export class UserService {
