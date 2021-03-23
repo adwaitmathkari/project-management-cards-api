@@ -6,7 +6,7 @@ let database: Mongoose.Connection;
 export const connectDB = () => {
 
     const url = 'mongodb://127.0.0.1:27017/taskManagementDB';
-    console.log('from connect: process.env.MONGO_CONNECTION_STRING :::',url);
+    console.log('from connect :::',url);
 
     if (database) {
         return;

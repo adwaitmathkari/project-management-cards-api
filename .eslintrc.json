@@ -4,8 +4,7 @@
         "node": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended"
+        "google"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -16,21 +15,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        "require-jsdoc" : 0,
+        "max-len": ["error", { "code": 120 }]
     }
 }
