@@ -10,8 +10,8 @@ export class CardController {
         this.app = app;
         this.cardService = new CardService();
     }
-    
-    async configureRoutes(){
+
+    async configureRoutes() {
 
         // getCard
         this.app.get('/api/card/:cardId', async (req, res) => {
@@ -47,6 +47,18 @@ export class CardController {
                 res.send(err.message)
             }
         });
+
+        // assign user to card
+        this.app.patch('/api/card/:cardId', async (req, res) => {
+            try {
+                const data = await this.cardService.assignUser(req.params.cardId, req.body.userId);
+                res.json(data)
+            } catch (err) {
+                res.status(400)
+                res.send(err.message);
+            }
+        })
+
     }
 
     // async updateCard(card) {
