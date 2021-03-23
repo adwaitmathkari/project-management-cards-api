@@ -1,9 +1,7 @@
 import { UserModel } from '../models/user.model';
 
 export class UserService {
-
-    constructor() {}
-
+    
     async getUser(email) {
         const user = await UserModel.findOne({email:email});
         console.log('user:::', user);
@@ -40,7 +38,7 @@ export class UserService {
             data = await UserModel.deleteOne({_id : userId});
         } catch(err) {
             console.log('Error::' + err);
-            throw err
+            throw err;
         }
         return {status: `${data.deletedCount > 0 ? true : false}`};
     }

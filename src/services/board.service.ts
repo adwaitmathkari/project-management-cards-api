@@ -2,9 +2,6 @@ import { BoardModel } from '../models/board.model';
 
 export class BoardService {
 
-    constructor() {
-    }
-
     async getBoard(id) {
         const board = await BoardModel.findOne({_id:id});
         console.log('board:::', board);

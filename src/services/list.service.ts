@@ -2,8 +2,6 @@ import { ListModel } from '../models/list.model';
 
 export class ListService {
 
-    constructor() {}
-
     async getList(id) {
         const list = await ListModel.findOne({_id:id});
         console.log('list:::', list);

@@ -2,9 +2,6 @@ import { CardModel } from '../models/card.model';
 
 export class CardService {
 
-    constructor() {
-    }
-
     async getCard(cardId) {
         const card = await CardModel.findOne({ _id: cardId });
         console.log('card:::', card);
@@ -27,7 +24,7 @@ export class CardService {
 
     async assignUser(cardId, userId) {
         let data = {};
-        if (userId == "") {
+        if (userId == '') {
             userId = undefined;
         }
         try {
@@ -39,7 +36,7 @@ export class CardService {
                         assignee: userId
                     }
                 }
-            )
+            );
         } catch (err) {
             console.log('Error::' + err);
             throw err;

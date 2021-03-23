@@ -10,8 +10,8 @@ export class UserController {
         this.app = app;
         this.userService = new UserService();
     }
-     
-    async configureRoutes(){
+
+    async configureRoutes() {
 
         // getUser
         this.app.get('/api/user/:email', async (req, res) => {
@@ -20,8 +20,8 @@ export class UserController {
                 const user = await this.userService.getUser(req.params.email);
                 res.json(user);
             } catch (err) {
-                res.status(404)
-                res.send(err.message)
+                res.status(404);
+                res.send(err.message);
             }
         });
 
@@ -30,10 +30,10 @@ export class UserController {
             console.log(req.body);
             try {
                 const data = await this.userService.createUser(req.body);
-                res.json(data)
+                res.json(data);
             } catch (err) {
-                res.status(400)
-                res.send(err.message)
+                res.status(400);
+                res.send(err.message);
             }
         });
 
@@ -41,10 +41,10 @@ export class UserController {
         this.app.delete('/api/user/:userid', async (req, res) => {
             try {
                 const data = await this.userService.deleteUser(req.params.userid);
-                res.json(data)
+                res.json(data);
             } catch (err) {
-                res.status(400)
-                res.send(err.message)
+                res.status(400);
+                res.send(err.message);
             }
         });
     }

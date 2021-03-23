@@ -1,5 +1,5 @@
 import * as express from 'express';
-import * as bodyParser from 'body-parser'
+import * as bodyParser from 'body-parser';
 import { UserController } from './controllers/user.controller';
 import { CardController } from './controllers/card.controller';
 import { connectDB } from '../config/db.config';
@@ -32,12 +32,12 @@ class App{
 
         this.express.get('/', (req, res) => {
             console.log('received basic request');
-            res.send('Welcome to adwait\'s tasks api')
+            res.send('Welcome to adwait\'s tasks api');
         });
 
         // handle undefined routes
-        this.express.use("*", (req, res, next) => {
-            res.send("Make sure url is correct!!!");
+        this.express.use('*', (req, res, next) => {
+            res.send('Make sure url is correct!!!');
         });
     }
 }

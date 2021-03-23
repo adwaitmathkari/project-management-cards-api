@@ -20,8 +20,8 @@ export class CardController {
                 const card = await this.cardService.getCard(req.params.cardId);
                 res.json(card);
             } catch (err) {
-                res.status(404)
-                res.send(err.message)
+                res.status(404);
+                res.send(err.message);
             }
         });
 
@@ -30,10 +30,10 @@ export class CardController {
             console.log(req.body);
             try {
                 const data = await this.cardService.createCard(req.body);
-                res.json(data)
+                res.json(data);
             } catch (err) {
-                res.status(400)
-                res.send(err.message)
+                res.status(400);
+                res.send(err.message);
             }
         });
 
@@ -41,10 +41,10 @@ export class CardController {
         this.app.delete('/api/card/:cardid', async (req, res) => {
             try {
                 const data = await this.cardService.deleteCard(req.params.cardid);
-                res.json(data)
+                res.json(data);
             } catch (err) {
-                res.status(400)
-                res.send(err.message)
+                res.status(400);
+                res.send(err.message);
             }
         });
 
@@ -52,12 +52,12 @@ export class CardController {
         this.app.patch('/api/card/:cardId', async (req, res) => {
             try {
                 const data = await this.cardService.assignUser(req.params.cardId, req.body.userId);
-                res.json(data)
+                res.json(data);
             } catch (err) {
-                res.status(400)
+                res.status(400);
                 res.send(err.message);
             }
-        })
+        });
 
     }
 
