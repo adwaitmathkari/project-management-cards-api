@@ -1,15 +1,15 @@
-import { connect, disconnect } from "../../config/db.config";
 import { UserModel } from '../models/user.model';
 
 export class UserService {
 
-    constructor() {
-        connect();
-    }
+    constructor() {}
 
     async getUser(email) {
         const user = await UserModel.findOne({email:email});
         console.log('user:::', user);
+        if (!user) {
+            throw new Error('User Not Found');
+        }
         return user;
     }
 
@@ -40,6 +40,7 @@ export class UserService {
             data = await UserModel.deleteOne({_id : userId});
         } catch(err) {
             console.log('Error::' + err);
+            throw err
         }
         return {status: `${data.deletedCount > 0 ? true : false}`};
     }

@@ -3,7 +3,7 @@ require('dotenv').config()
 
 let database: Mongoose.Connection;
 
-export const connect = () => {
+export const connectDB = () => {
 
     const url = 'mongodb://127.0.0.1:27017/taskManagementDB';
     console.log("from connect: process.env.MONGO_CONNECTION_STRING :::",url)
