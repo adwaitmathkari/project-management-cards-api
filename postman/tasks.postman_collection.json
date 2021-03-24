@@ -1,0 +1,470 @@
+{
+	"info": {
+		"_postman_id": "385933c4-65d9-4595-af2a-5f3b56aad949",
+		"name": "tasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Adwait Mathkari\",\n    \"email\": \"adwaitmathkari@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/user/605b89515b34d1834c417913",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"user",
+						"605b89515b34d1834c417913"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/user/605a313235cf5b9ed9136492",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"user",
+						"605a313235cf5b9ed9136492"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCard",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"card3\",\n    \"description\": \"card 3 descr\",\n    \"assignee\": null,\n    \"listId\": \"605b6beb35e1546801a85176\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/card",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"card"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/card/605b89035b34d1834c417912",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"card",
+						"605b89035b34d1834c417912"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCard",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/card/605b9d0670cd429c40c5a3a2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"card",
+						"605b9d0670cd429c40c5a3a2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assign user to card",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"605b89515b34d1834c417913\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/card/605b89035b34d1834c417912",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"card",
+						"605b89035b34d1834c417912"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createBoard",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"my first board\",\n    \"description\": \"great board\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/board",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"board"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBoard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/board/605a55cbdcfe952588252c0f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"board",
+						"605a55cbdcfe952588252c0f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteBoard",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/board/605a55dc78dc1225dc012fd5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"board",
+						"605a55dc78dc1225dc012fd5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add member to board",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"605a314335cf5b9ed9136490\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/board/605a55cbdcfe952588252c0f/members/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"board",
+						"605a55cbdcfe952588252c0f",
+						"members",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove member from board",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"605a314335cf5b9ed9136495\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/board/605a55cbdcfe952588252c0f/members/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"board",
+						"605a55cbdcfe952588252c0f",
+						"members",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add list to board",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"listId\":\"605a314335cf5b9ed9136493\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/board/605a55cbdcfe952588252c0f/lists/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"board",
+						"605a55cbdcfe952588252c0f",
+						"lists",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove list from board",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"listId\":\"605b7d5ea8b584721b4499fa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/board/605a55cbdcfe952588252c0f/lists/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"board",
+						"605a55cbdcfe952588252c0f",
+						"lists",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"InProgress\",\n    \"boardId\":\"605a55cbdcfe952588252c0f\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getList",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/list/605b6beb35e1546801a85176",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"list",
+						"605b6beb35e1546801a85176"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteList",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/api/list/605b7d5ea8b584721b4499fa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"list",
+						"605b7d5ea8b584721b4499fa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
