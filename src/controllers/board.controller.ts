@@ -67,6 +67,28 @@ export class BoardController {
           res.send(err.message);
         }
       });
+
+      // add member to board
+      this.app.patch('/api/board/:boardId/lists/add', async (req, res) => {
+        try {
+          const data = await this.boardService.addListToBoard(req.body.listId, req.params.boardId);
+          res.json(data);
+        } catch (err) {
+          res.status(400);
+          res.send(err.message);
+        }
+      });
+
+      // remove member to board
+      this.app.patch('/api/board/:boardId/lists/remove', async (req, res) => {
+        try {
+          const data = await this.boardService.removeListFromBoard(req.body.listId, req.params.boardId);
+          res.json(data);
+        } catch (err) {
+          res.status(400);
+          res.send(err.message);
+        }
+      });
     }
 
   // async updateBoard(board) {

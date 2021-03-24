@@ -4,18 +4,21 @@ import {connectDB} from '../config/db.config';
 import {UserController} from './controllers/user.controller';
 import {CardController} from './controllers/card.controller';
 import {BoardController} from './controllers/board.controller';
+import {ListController} from './controllers/list.controller';
 
 class App {
     public express: express.Application;
     public userController: UserController;
     public cardController: CardController;
     public boardController: BoardController
+    public listController: ListController;
 
     constructor() {
       this.express = express();
       this.userController = new UserController(this.express);
       this.cardController = new CardController(this.express);
       this.boardController = new BoardController(this.express);
+      this.listController = new ListController(this.express);
       this.middleware();
       this.routes();
       connectDB();
@@ -32,6 +35,7 @@ class App {
       this.userController.configureRoutes();
       this.cardController.configureRoutes();
       this.boardController.configureRoutes();
+      this.listController.configureRoutes();
 
       this.express.get('/', (req, res) => {
         console.log('received basic request');

@@ -1,6 +1,13 @@
 import {CardModel} from '../models/card.model';
+import {ListService} from './list.service';
 
 export class CardService {
+  listService: ListService;
+
+  constructor() {
+    this.listService = new ListService();
+  }
+
   async getCard(cardId) {
     const card = await CardModel.findOne({_id: cardId});
     console.log('card:::', card);
@@ -10,10 +17,11 @@ export class CardService {
     return card;
   }
 
-  async createCard(card) {
-    let data = {};
+  async createCard(card, listId) {
+    let data:any = {};
     try {
       data = await CardModel.create(card);
+      await this.listService.addCardToList(listId, data._id);
     } catch (err) {
       console.log('Error::' + err);
       throw err;
@@ -29,11 +37,9 @@ export class CardService {
     try {
       data = await CardModel.updateOne(
           {_id: cardId},
-          {
-            $set:
-                    {
-                      assignee: userId,
-                    },
+          {$set: {
+            assignee: userId,
+          },
           },
       );
     } catch (err) {

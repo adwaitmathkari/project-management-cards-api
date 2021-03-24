@@ -2,7 +2,7 @@ import {model, Schema, Model, Document} from 'mongoose';
 
 export interface IList extends Document {
     title: string;
-    cards: any;
+    cards: [any];
 }
 
 const ListSchema: Schema = new Schema({

@@ -1,8 +1,8 @@
 import {UserModel} from '../models/user.model';
 
 export class UserService {
-  async getUser(email) {
-    const user = await UserModel.findOne({email: email});
+  async getUser(id) {
+    const user = await UserModel.findOne({_id: id});
     console.log('user:::', user);
     if (!user) {
       throw new Error('User Not Found');

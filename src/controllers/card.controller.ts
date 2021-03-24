@@ -27,7 +27,7 @@ export class CardController {
       this.app.post('/api/card', async (req, res) => {
         console.log(req.body);
         try {
-          const data = await this.cardService.createCard(req.body);
+          const data = await this.cardService.createCard(req.body, req.body.listId);
           res.json(data);
         } catch (err) {
           res.status(400);

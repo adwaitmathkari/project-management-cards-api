@@ -31,6 +31,8 @@ export const connectDB = () => {
 
 };
 
+export const ObjectId = Mongoose.Types.ObjectId;
+
 export const disconnect = () => {
     
     if (!database) {

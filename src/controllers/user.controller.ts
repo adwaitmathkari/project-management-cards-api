@@ -12,10 +12,10 @@ export class UserController {
 
     async configureRoutes() {
       // getUser
-      this.app.get('/api/user/:email', async (req, res) => {
+      this.app.get('/api/user/:id', async (req, res) => {
         console.log('received basic request');
         try {
-          const user = await this.userService.getUser(req.params.email);
+          const user = await this.userService.getUser(req.params.id);
           res.json(user);
         } catch (err) {
           res.status(404);
