@@ -1,13 +1,16 @@
 
 import {CardService} from '../services/card.service';
+import {ListService} from '../services/list.service';
 
 export class CardController {
     private cardService: CardService;
     private app: any;
+    private listService: ListService;
 
     constructor(app) {
       this.app = app;
       this.cardService = new CardService();
+      this.listService = new ListService();
     }
 
     async configureRoutes() {
@@ -50,6 +53,17 @@ export class CardController {
       this.app.patch('/api/card/:cardId', async (req, res) => {
         try {
           const data = await this.cardService.assignUser(req.params.cardId, req.body.userId);
+          res.json(data);
+        } catch (err) {
+          res.status(400);
+          res.send(err.message);
+        }
+      });
+
+      this.app.post('/api/card/move', async (req, res) => {
+        try {
+          const data = await this.listService.moveCard(
+              req.body.moveFromListId, req.body.moveToListId, req.body.cardId);
           res.json(data);
         } catch (err) {
           res.status(400);

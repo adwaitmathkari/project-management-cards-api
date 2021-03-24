@@ -96,11 +96,17 @@ export class ListService {
       add = this.addCardToList(moveToListId, cardId);
       add = await remove;
       remove = await add;
+      console.log(add, remove);
+      return {
+        added: `${add.nModified > 0 ? true : false}`,
+        removed: `${remove.nModified > 0 ? true : false}`,
+      };
     } catch (err) {
       console.log('Error:::moveCard', err);
       throw err;
     }
   }
+
   // async updateList(task) {
   //     let data = {};
   //     try {
