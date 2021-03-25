@@ -1,9 +1,13 @@
 import {BoardModel} from '../models/board.model';
 import {ListModel} from '../models/list.model';
+import {ListService} from './list.service';
 
 export class BoardService {
   async getBoard(id) {
     let board: any = await BoardModel.findOne({_id: id});
+    if (!board) {
+      return board;
+    }
     board = board.toObject();
     const lists = await ListModel.find({_id: {$in: board.lists}});
     board.lists = lists;
@@ -101,8 +105,14 @@ export class BoardService {
   async deleteBoard(id) {
     let data: any = {};
     try {
-      // ******TODO ****** delete lists and cards in board
-      // ****
+      let board: any = await BoardModel.findOne({_id: id});
+      const listService = new ListService();
+      board = board.toObject();
+      board.lists.forEach((list)=>{
+        console.log('deleting list: ' + list);
+        listService.deleteList(list).then((res)=>console.log(res))
+            .catch((err) => console.log('Error deleting lists from board', err));
+      });
 
       data = await BoardModel.deleteOne({_id: id});
     } catch (err) {

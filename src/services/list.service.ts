@@ -27,6 +27,9 @@ export class ListService {
     // console.timeEnd('1q');
     // console.time('2q')
     let list:any = await ListModel.findById(id);
+    if (!list) {
+      return list;
+    }
     list = list.toObject();
     const cards = await CardModel.find({_id: {$in: list.cards}});
     list.cards = cards;
@@ -120,7 +123,7 @@ export class ListService {
   async deleteList(id) {
     try {
       const list:any = await ListModel.findById(id);
-
+      console.log('deleting cards', list.cards+ ' in list '+ id);
       let cardsDelResponse:any = CardModel.deleteMany({_id: {$in: list.cards}});
       let listDelResponse:any = ListModel.deleteOne({_id: id});
       cardsDelResponse = await cardsDelResponse;

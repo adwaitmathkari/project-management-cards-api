@@ -102,7 +102,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"card3\",\n    \"description\": \"card 3 descr\",\n    \"assignee\": null,\n    \"listId\": \"605b6beb35e1546801a85176\"\n}",
+					"raw": "{\n    \"title\": \"card3\",\n    \"description\": \"card 3 descr only3 card\",\n    \"assignee\": null,\n    \"listId\": \"{{listid}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -130,7 +130,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3003/api/card/605b89035b34d1834c417912",
+					"raw": "http://localhost:3003/api/card/{{cardid}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -139,7 +139,7 @@
 					"path": [
 						"api",
 						"card",
-						"605b89035b34d1834c417912"
+						"{{cardid}}"
 					]
 				}
 			},
@@ -203,7 +203,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"my first board\",\n    \"description\": \"great board\"\n\n}",
+					"raw": "{\n    \"title\": \"trial board\",\n    \"description\": \"trial board\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -231,6 +231,27 @@
 				"method": "GET",
 				"header": [],
 				"url": {
+					"raw": "http://localhost:3003/api/board/{{boardid}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"board",
+						"{{boardid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBoard Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
 					"raw": "http://localhost:3003/api/board/605a55cbdcfe952588252c0f",
 					"protocol": "http",
 					"host": [
@@ -252,7 +273,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3003/api/board/605a55dc78dc1225dc012fd5",
+					"raw": "http://localhost:3003/api/board/{{boardid}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -261,7 +282,7 @@
 					"path": [
 						"api",
 						"board",
-						"605a55dc78dc1225dc012fd5"
+						"{{boardid}}"
 					]
 				}
 			},
@@ -402,7 +423,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"InProgress\",\n    \"boardId\":\"605a55cbdcfe952588252c0f\"\n}",
+					"raw": "{\n    \"title\": \"InProgress\",\n    \"boardId\":\"{{boardid}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -430,7 +451,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3003/api/list/605b6beb35e1546801a85176",
+					"raw": "http://localhost:3003/api/list/{{listid}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -439,7 +460,7 @@
 					"path": [
 						"api",
 						"list",
-						"605b6beb35e1546801a85176"
+						"{{listid}}"
 					]
 				}
 			},
@@ -461,6 +482,36 @@
 						"api",
 						"list",
 						"605b7d5ea8b584721b4499fa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "moveCard",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"moveFromListId\": \"605b6beb35e1546801a85176\",\n    \"moveToListId\": \"605b6bfe35e1546801a85177\",\n    \"cardId\": \"605b9d0870cd429c40c5a3a9\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/api/card/move",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"api",
+						"card",
+						"move"
 					]
 				}
 			},
