@@ -1,4 +1,5 @@
 
+import {ProductModel} from '../models/product.model';
 import {UserService} from '../services/user.service';
 
 export class UserController {
@@ -45,10 +46,19 @@ export class UserController {
           res.send(err.message);
         }
       });
-    }
 
-  // async updateUser(user) {
-  //     console.log('Controller: updateUser', user);
-  //     return await this.userService.updateUser(user);
-  // }
+      this.app.get('/addprods', async (req, res) => {
+        // const prods = [];
+        let response;
+        for (let i = 0; i < 1000000; i++) {
+          if (i%10000 == 9999) console.log('adding', i);
+          try {
+            response = await ProductModel.create({title: `product${i}`, price: i});
+          } catch (err) {
+            console.log(err);
+          }
+        }
+        res.json(response);
+      });
+    }
 }

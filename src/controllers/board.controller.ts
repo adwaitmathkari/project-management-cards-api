@@ -89,10 +89,13 @@ export class BoardController {
           res.send(err.message);
         }
       });
-    }
 
-  // async updateBoard(board) {
-  //     console.log('Controller: updateBoard', board);
-  //     return await this.boardService.updateBoard(board);
-  // }
+      this.app.get('/api/boards', async (req, res) => {
+        try {
+          res.json(await this.boardService.getBoards());
+        } catch (err) {
+          res.status(400).send(err.message);
+        }
+      });
+    }
 }

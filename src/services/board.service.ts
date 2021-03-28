@@ -15,6 +15,29 @@ export class BoardService {
     return board;
   }
 
+  async getBoards() {
+    const boards:any = await BoardModel.find();
+    const promises = [];
+    boards.forEach(async (board:any) =>{
+      const b1 = board;
+      promises.push(
+          new Promise(async (resolve, reject) => {
+            const lists = await ListModel.find({_id: {$in: b1.lists}});
+            // console.log('board', lists)
+            resolve(lists);
+          }),
+      );
+    });
+    const listsRes = await Promise.all(promises);
+    console.log(listsRes);
+    for (let i =0; i < boards.length; i++) {
+      boards[i] = boards[i].toObject();
+      boards[i].lists = listsRes[i];
+    }
+    console.log('resolving boards');
+    return boards;
+  }
+
   async createBoard(board) {
     let data = {};
     try {
